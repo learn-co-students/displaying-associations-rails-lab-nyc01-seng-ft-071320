@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Artist.delete_all
+Song.delete_all
+
+10.times do
+    Artist.create(name: Faker::Music.band)
+end
+
+20.times do
+    Song.create(title: Faker::Music::UmphreysMcgee.song, artist_id: rand(1..10))
+end
